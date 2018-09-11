@@ -1,2 +1,2 @@
 # perl
-write some perl one-liner
+some perl one-liners that I wrote
