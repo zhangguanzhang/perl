@@ -1,0 +1,53 @@
+[root@k8s-m1 temp]# cat txt
+1
+
+2
+
+3
+4
+
+5
+
+6
+7
+[root@k8s-m1 temp]# cat txt -n
+     1	1
+     2	
+     3	2
+     4	
+     5	3
+     6	4
+     7	
+     8	5
+     9	
+    10	6
+    11	7
+[root@k8s-m1 temp]# perl -lne '$a++ if /^\s*$/ && $a<=3 ;print "\n" if $a == 3 && /^\s*$/;print' txt | cat -n
+     1	1
+     2	
+     3	2
+     4	
+     5	3
+     6	4
+     7	
+     8	
+     9	
+    10	5
+    11	
+    12	6
+    13	7
+[root@k8s-m1 temp]# perl -i -lne '$a++ if /^\s*$/ && $a<=3 ;print "\n" if $a == 3 && /^\s*$/;print' txt 
+[root@k8s-m1 temp]# cat -n txt
+     1	1
+     2	
+     3	2
+     4	
+     5	3
+     6	4
+     7	
+     8	
+     9	
+    10	5
+    11	
+    12	6
+    13	7
